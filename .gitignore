@@ -1,0 +1,9 @@
+# 예시코드의 .gitignore
+.DS_Store
+.idea
+.vagrant
+*.pyc
+*.box
+.ipynb_checkpoints
+
+.idea/
