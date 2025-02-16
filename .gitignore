@@ -6,4 +6,8 @@
 *.box
 .ipynb_checkpoints
 
+# IDE
 .idea/
+
+# 가상환경
+venv/

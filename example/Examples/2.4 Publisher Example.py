@@ -35,3 +35,10 @@ for message_number in range(0, 10):
                                {'content_type': 'text/plain'},
                                opinionated=True)
     message.publish(exchange, 'example-routing-key')
+
+# 큐의 메시지 개수 확인
+queue_info = queue.declare(passive=True)  # passive=True를 설정하면 기존 큐 정보를 조회만 함
+print(f'Queue "example" message count: {queue_info[1]}')
+
+# 연결 닫기
+connection.close()
