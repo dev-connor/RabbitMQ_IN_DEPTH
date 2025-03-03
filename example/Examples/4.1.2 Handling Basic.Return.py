@@ -3,7 +3,8 @@ import rabbitpy
 import time
 
 # Connect to the default URL of amqp://guest:guest@localhost:15672/%2F
-connection = rabbitpy.Connection()
+url = 'amqp://guest:guest@localhost:5672/%2F'
+connection = rabbitpy.Connection(url)
 try:
     with connection.channel() as channel:
         properties = {'content_type': 'text/plain',

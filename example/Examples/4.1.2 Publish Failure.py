@@ -1,8 +1,8 @@
 import datetime
 import rabbitpy
 
-
-with rabbitpy.Connection() as connection:
+url = 'amqp://guest:guest@localhost:5672/%2F'
+with rabbitpy.Connection(url) as connection:
     with connection.channel() as channel:
         # Create the message to send
         body = 'server.cpu.utilization 25.5 1350884514'
