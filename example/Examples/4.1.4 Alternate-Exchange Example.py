@@ -11,7 +11,7 @@ with rabbitpy.Connection() as connection:
                                      exchange_type='topic',
                                      arguments=args)
         exchange.declare()
-        queue = rabbitpy.Queue(channel, 'unroutable-messages')
-        queue.declare()
-        if queue.bind(my_ae, '#'):
+        unroutable_messages_queue = rabbitpy.Queue(channel, 'unroutable-messages')
+        unroutable_messages_queue.declare()
+        if unroutable_messages_queue.bind(my_ae, '#'):
             print('Queue bound to alternate-exchange')
