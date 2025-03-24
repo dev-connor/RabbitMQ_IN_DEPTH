@@ -1,6 +1,11 @@
 import os
+import sys
+
 import rabbitpy
 import time
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../notebooks")))
+
 from ch6 import utils
 
 # Open the channel and connection
