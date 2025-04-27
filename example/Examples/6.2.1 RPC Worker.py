@@ -5,7 +5,8 @@ from ch6 import detect
 from ch6 import utils
 
 # Open the connection and the channel
-connection = rabbitpy.Connection()
+url = 'amqp://guest:guest@rabbitmq:5672/%2F'
+connection = rabbitpy.Connection(url)
 channel = connection.channel()
 
 # Create the worker queue
