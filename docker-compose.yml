@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.8-management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"  # RabbitMQ 관리 콘솔 (http://localhost:15672)
+      - "5672:5672"    # RabbitMQ 메시지 통신 포트
+    networks:
+      - mynetwork
+
+  jupyter:
+    build: .
+    container_name: jupyter
+    ports:
+      - "8888:8888"    # Jupyter Notebook 접속 포트
+    networks:
+      - mynetwork
+    environment:
+      - JUPYTER_TOKEN=your_token_here  # 접속할 때 사용할 토큰 설정 (원하면 비워도 됨)
+    user: root  # ← 이거 추가
+
+
+networks:
+  mynetwork:
+    driver: bridge

@@ -26,7 +26,7 @@ if response_queue.bind('rpc-replies', queue_name):
 # Iterate through the images to send RPC requests for
 for img_id, filename in enumerate(utils.get_images()):
 
-    print 'Sending request for image #%s: %s' % (img_id, filename)
+    print('Sending request for image #%s: %s' % (img_id, filename))
 
     # Create the message
     message = rabbitpy.Message(channel,
@@ -58,7 +58,7 @@ for img_id, filename in enumerate(utils.get_images()):
     # Display the image in the IPython notebook interface
     utils.display_image(message.body, message.properties['content_type'])
 
-print 'RPC requests processed'
+print('RPC requests processed')
 
 # Close the channel and connection
 channel.close()
